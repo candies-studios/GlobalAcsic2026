@@ -1,12 +1,69 @@
 /* Section-Specific Styling */
 
+/* Why Participate Section - 2 Column Layout */
+.why-participate-section {
+  padding: 60px 0 !important;
+}
+
+.why-participate-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1330px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.why-participate-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.why-participate-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.why-participate-image img:hover {
+  transform: scale(1.02);
+}
+
+.why-participate-content {
+  padding: 0;
+}
+
+.section-title-inline {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-bottom: 0;
+}
+
+.section-title-inline h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1F3F79;
+  margin-bottom: 0;
+  display: block;
+}
+
+.section-title-inline h2::after {
+  display: none;
+}
+
 /* Feature List Styling */
 .feature-list {
   display: flex;
   flex-direction: column;
   gap: 0;
-  max-width: 900px;
-  margin: 40px auto;
+  max-width: 100%;
+  margin: 0;
 }
 
 .feature-item {
@@ -15,6 +72,12 @@
   padding: 20px 0;
   border-bottom: 1px solid #e0e0e0;
   gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  padding-left: 10px;
+  background-color: rgba(13, 205, 196, 0.02);
 }
 
 .feature-item:last-child {
@@ -28,6 +91,12 @@
   flex-shrink: 0;
   margin-top: 2px;
   font-family: 'Bebas Neue', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-checkmark {
+  font-size: 28px;
+  transform: scale(1.1);
 }
 
 .feature-item p {
@@ -36,6 +105,49 @@
   line-height: 1.8;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.feature-item:hover p {
+  color: #1F3F79;
+}
+
+/* Responsive: 2 columns to 1 column */
+@media (max-width: 1024px) {
+  .why-participate-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .why-participate-image {
+    min-height: 400px;
+  }
+
+  .section-title-inline h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-participate-wrapper {
+    gap: 20px;
+  }
+
+  .why-participate-image {
+    min-height: 300px;
+  }
+
+  .section-title-inline h2 {
+    font-size: 28px;
+  }
+
+  .feature-item {
+    padding: 15px 0;
+  }
+
+  .feature-checkmark {
+    font-size: 20px;
+  }
 }
 
 /* Countdown Section */
