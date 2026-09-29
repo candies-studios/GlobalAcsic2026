@@ -9,6 +9,297 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/hero.css">
     <link rel="stylesheet" href="../assets/css/sections.css">
+    <style>
+        body.has-ac-header {
+            padding-top: 120px;
+        }
+
+        /* Animated Circles Background */
+        .hero-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            left: 15%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 8%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 25%;
+            animation-duration: 9s;
+            animation-delay: 0.5s;
+        }
+
+        .circle:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            top: 60%;
+            left: 20%;
+            animation-duration: 11s;
+            animation-delay: 1.5s;
+        }
+
+        .circle:nth-child(6) {
+            width: 90px;
+            height: 90px;
+            top: 40%;
+            left: 30%;
+            animation-duration: 13s;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 0.5;
+            }
+        }
+
+        /* Hero Section */
+        .about-hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #1a3a52 0%, #2d5a7f 50%, #4b7ba7 100%);
+            background-image: url("../assets/images/KSP_5174.jpg");
+            background-size: cover;
+            background-position: center right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: -120px;
+            padding-top: 120px;
+        }
+
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.85) 0%, rgba(45, 90, 127, 0.8) 50%, rgba(75, 123, 167, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1330px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .location-icon {
+            font-size: 80px;
+            color: #fff;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .about-hero-text {
+            color: white;
+            z-index: 3;
+        }
+
+        .about-hero-text h1 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 72px;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+        }
+
+        .about-hero-text p {
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 15px 0 0 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Main Content */
+        .venue-content {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .venue-section {
+            margin-bottom: 50px;
+        }
+
+        .venue-section h3 {
+            font-family: "Roboto", sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #1F3F79;
+            margin: 0 0 20px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .venue-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666;
+            margin: 0 0 20px 0;
+        }
+
+        .venue-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .venue-list li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .venue-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0DCDC4;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .venue-list li:last-child {
+            border-bottom: none;
+        }
+
+        .event-details {
+            background: linear-gradient(135deg, #1F3F79, rgba(31, 63, 121, 0.9));
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 60px 0;
+            box-shadow: 0 8px 24px rgba(31, 63, 121, 0.15);
+        }
+
+        .event-details h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .event-details p {
+            color: rgba(255, 255, 255, 0.95);
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .event-details strong {
+            color: #FFC300;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: inline-block;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-button a {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #FFC300;
+            color: #1F3F79 !important;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(255, 195, 0, 0.3);
+        }
+
+        .cta-button a:hover {
+            background: #1F3F79;
+            color: #FFC300 !important;
+            box-shadow: 0 8px 20px rgba(31, 63, 121, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 400px;
+            }
+
+            .about-hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .about-hero-text h1 {
+                font-size: 48px;
+            }
+
+            .about-hero-text p {
+                font-size: 18px;
+            }
+
+            .location-icon {
+                font-size: 60px;
+            }
+
+            .venue-content {
+                margin: 40px auto;
+            }
+        }
+    </style>
 </head>
 <body class="has-ac-header">
     <header class="ac-header">
@@ -26,60 +317,69 @@
     </header>
 
     <main>
-        <section class="section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>About the Venue</h2>
+        <!-- Hero Section with Animations -->
+        <section class="about-hero">
+            <div class="hero-circles">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+
+            <div class="about-hero-content">
+                <div class="location-icon">📍</div>
+                <div class="about-hero-text">
+                    <h1>About the Venue</h1>
                     <p>The Taj Mahal Palace, Mumbai</p>
                 </div>
+            </div>
+        </section>
 
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <h3 style="margin-bottom: 20px; color: #002d5c;">Location & Access</h3>
-                    <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 30px;">
-                        The Taj Mahal Palace overlooks the Arabian Sea in South Mumbai's heart, providing convenient access to major
-                        business districts, cultural landmarks, and transport hubs.
-                    </p>
+        <!-- Content Section -->
+        <section class="venue-content">
+            <div class="venue-section">
+                <h3>Location & Access</h3>
+                <p>The Taj Mahal Palace overlooks the Arabian Sea in South Mumbai's heart, providing convenient access to major business districts, cultural landmarks, and transport hubs.</p>
+            </div>
 
-                    <h3 style="margin-bottom: 20px; color: #002d5c;">World-Class Facilities</h3>
-                    <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 20px;">
-                        The palace combines heritage architecture with modern conference infrastructure, offering:
-                    </p>
-                    <ul class="feature-list" style="font-size: 16px; color: #666; line-height: 1.8;">
-                        <li>Advanced meeting spaces and ballrooms</li>
-                        <li>High-quality audio-visual support</li>
-                        <li>Professional event services and hospitality</li>
-                        <li>Multiple dining and networking areas</li>
-                        <li>Comfortable accommodation for delegates</li>
-                    </ul>
+            <div class="venue-section">
+                <h3>World-Class Facilities</h3>
+                <p>The palace combines heritage architecture with modern conference infrastructure, offering:</p>
+                <ul class="venue-list">
+                    <li>Advanced meeting spaces and ballrooms</li>
+                    <li>High-quality audio-visual support</li>
+                    <li>Professional event services and hospitality</li>
+                    <li>Multiple dining and networking areas</li>
+                    <li>Comfortable accommodation for delegates</li>
+                </ul>
+            </div>
 
-                    <h3 style="margin-top: 40px; margin-bottom: 20px; color: #002d5c;">Strategic Significance</h3>
-                    <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 30px;">
-                        The choice of this iconic hotel reflects the event's commitment to excellence and creates an inspiring
-                        environment where global leaders, policymakers, and financial experts can engage in collaborative dialogue.
-                    </p>
+            <div class="venue-section">
+                <h3>Strategic Significance</h3>
+                <p>The choice of this iconic hotel reflects the event's commitment to excellence and creates an inspiring environment where global leaders, policymakers, and financial experts can engage in collaborative dialogue.</p>
+            </div>
 
-                    <h3 style="margin-bottom: 20px; color: #002d5c;">Cultural Experience</h3>
-                    <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 20px;">
-                        Beyond conference facilities, delegates can explore Mumbai's nearby historic sites, waterfront areas,
-                        and local culture, experiencing the city's dynamic, diverse, and globally connected character.
-                    </p>
+            <div class="venue-section">
+                <h3>Cultural Experience</h3>
+                <p>Beyond conference facilities, delegates can explore Mumbai's nearby historic sites, waterfront areas, and local culture, experiencing the city's dynamic, diverse, and globally connected character.</p>
+            </div>
 
-                    <div style="background: linear-gradient(135deg, #002d5c, rgba(0, 45, 92, 0.8)); color: white; padding: 30px; border-radius: 8px; margin-top: 40px;">
-                        <h3 style="color: white; margin-bottom: 15px;">Event Details</h3>
-                        <p style="margin-bottom: 10px;"><strong>Dates:</strong> April 23-24, 2026</p>
-                        <p style="margin-bottom: 10px;"><strong>Venue:</strong> The Taj Mahal Palace, Mumbai</p>
-                        <p><strong>Theme:</strong> Shaping the future of Credit Guarantee System</p>
-                    </div>
+            <div class="event-details">
+                <h3>Event Details</h3>
+                <p><strong>Dates:</strong> April 23-24, 2026</p>
+                <p><strong>Venue:</strong> The Taj Mahal Palace, Mumbai</p>
+                <p><strong>Theme:</strong> Shaping the future of Credit Guarantee System</p>
+            </div>
 
-                    <div style="text-align: center; margin-top: 40px;">
-                        <a href="../pages/login.html" class="btn">Register Now</a>
-                    </div>
-                </div>
+            <div class="cta-button">
+                <a href="../pages/login.html">Register Now</a>
             </div>
         </section>
     </main>
 
-        <footer>
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
